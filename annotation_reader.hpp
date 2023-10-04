@@ -7,13 +7,14 @@
 
 struct annotation_fields {
         annotation_fields() {}
-        annotation_fields(std::string class_l, std::string mechanism_l, std::string group_l)
-                : _class_level(class_l), _mechanism_level(mechanism_l), _group_level(group_l)
+        annotation_fields(std::string type_l, std::string class_l, std::string mechanism_l, std::string group_l)
+	  : _type_l(type_l), _class_l(class_l), _mechanism_l(mechanism_l), _group_l(group_l)
         {}
 
-        std::string _class_level;
-        std::string _mechanism_level;
-        std::string _group_level;
+        std::string _type_l;
+        std::string _class_l;
+        std::string _mechanism_l;
+        std::string _group_l;
 };
 
 class annotation_reader {
