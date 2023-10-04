@@ -18,12 +18,14 @@ struct cmd_args {
 	std::string mech_fp;
 	std::string class_fp;
 	std::string group_fp;
+	std::string type_fp;
 };
 
 static void usage() {
         fprintf(stderr, "\n");
         fprintf(stderr, "Program: RarefactionAnalyzer\n");
         fprintf(stderr, "Contact: Chris Dean <cdean11@rams.colostate.edu>\n\n");
+		fprintf(stderr, "This is not the version shipped with AMR++ v3,\n but instead an attempt to reverse engineer that version!! \n\n");
         fprintf(stderr, "Usage: rarefaction [options]\n\n");
         fprintf(stderr, "Options:\n\n");
         fprintf(stderr, "	-ref_fp		STR/FILE        Fasta file path\n");
@@ -33,6 +35,7 @@ static void usage() {
 	    fprintf(stderr, "	-group_fp	STR/FILE        Output name for group level resistome rarefaction distribution\n");
 	    fprintf(stderr, "	-mech_fp	STR/FILE        Output name for mechanism level resistome rarefaction distribution\n");
 	    fprintf(stderr, "	-class_fp	STR/FILE        Output name for class level resistome rarefaction distribution\n");
+		fprintf(stderr, "	-type_fp	STR/FILE	Output name for type level resistome\n");
 	    fprintf(stderr, "	-min            INT             Starting sample level\n");
 	    fprintf(stderr, "	-max            INT             Ending sample level\n");
 	    fprintf(stderr, "	-skip           INT             Number of levels to skip\n");
@@ -67,6 +70,8 @@ inline parse_command_line(const int argc, const char *argv[]) {
 			arg.gene_fp = args[++i];
 		else if(args[i].compare("-class_fp") == 0)
                         arg.class_fp = args[++i];
+		else if(args[i].compare("-type_fp") == 0)
+						arg.type_fp = args[++i];
 		else if(args[i].compare("-group_fp") == 0)
                         arg.group_fp = args[++i];
 		else if(args[i].compare("-mech_fp") == 0)

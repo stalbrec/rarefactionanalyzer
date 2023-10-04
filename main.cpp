@@ -13,7 +13,7 @@
 using namespace std;
 
 int main(const int argc, const char *argv[]) {
-	if(argc != 25) {
+	if(argc != 27) {
 		usage();
 		exit(EXIT_FAILURE);
 	}
