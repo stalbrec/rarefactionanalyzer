@@ -37,6 +37,7 @@ int main(const int argc, const char *argv[]) {
 		for(auto val = key->second.begin(); val != key->second.end(); ++val) {
 			if(annotations.count(*val) > 0) {
 				samp.class_l[key->first].insert(annotations[*val]._class_level);
+				samp.type_l[key->first].insert(annotations[*val]._type_level);
 				samp.mechanism_l[key->first].insert(annotations[*val]._mechanism_level);
 				samp.group_l[key->first].insert(annotations[*val]._group_level);
 			}
@@ -52,6 +53,11 @@ int main(const int argc, const char *argv[]) {
 	ofstream ofs_class(args.class_fp);
 	for(auto key = samp.class_l.begin(); key != samp.class_l.end(); ++key) {
 		ofs_class << key->first << "\t" << key->second.size() << endl;
+	}
+
+	ofstream ofs_type(args.type_fp);
+	for(auto key = samp.type_l.begin(); key != samp.type_l.end(); ++key) {
+		ofs_type << key->first << "\t" << key->second.size() << endl;
 	}
 
 	ofstream ofs_mech(args.mech_fp);

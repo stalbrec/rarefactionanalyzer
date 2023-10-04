@@ -14,6 +14,7 @@
 struct samples {
 	std::map<int, std::set<std::string> > gene_l;
 	std::map<int, std::set<std::string> > class_l;
+	std::map<int, std::set<std::string> > type_l;
 	std::map<int, std::set<std::string> > mechanism_l;
 	std::map<int, std::set<std::string> > group_l;
 };
